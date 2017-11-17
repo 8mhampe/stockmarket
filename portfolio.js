@@ -18,18 +18,25 @@ function Portfolio(){
     this.add = function(stk){
         this.stock.push(stk);
     };
-    this.update = function(tkr,val){};
-    this.buy = function(tkr,qnt){};
+    this.update = function(tkr,val){
+      if(findStock(tkr) >=0){
+        this.stocks[findStock(tkr)].value = val;
+      }
+    };
+    this.buy = function(tkr,qnt){
+      if(findStock(tkr) >=0){
+        this.stocks[findStock(tkr)].quantity = this.quantity + qnt;
+      }
+    };
     this.sell = function(tkr,qnt){
-        let position= findStock(tkr);
-        if(position>=0){
-
-        }
+      if(findStock(tkr) >=0){
+        return this.stocks[findStock(tkr)].sell(qnt);
+      }
     };
     this.totalValue = function(){
         let total = 0;
         for(let s=0; s<this.stocks.length; s++){
-            total= total+this.stocks.[s].totalValue();
+            total= total+this.stocks.s.totalValue();
         }
         return total;
     };
