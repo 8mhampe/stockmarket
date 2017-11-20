@@ -16,7 +16,7 @@ function Portfolio(){
 
     //instance functions
     this.add = function(stk){
-        this.stock.push(stk);
+        this.stocks.push(stk);
     };
     this.update = function(tkr,val){
       if(findStock(tkr) >=0){
@@ -36,7 +36,7 @@ function Portfolio(){
     this.totalValue = function(){
         let total = 0;
         for(let s=0; s<this.stocks.length; s++){
-            total= total+this.stocks.s.totalValue();
+            total= total+this.stocks[s].totalValue();
         }
         return total;
     };
